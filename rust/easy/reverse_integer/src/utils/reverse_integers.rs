@@ -15,3 +15,33 @@ pub fn reverse(x: i32) -> i32 {
     }
     return result as i32;
 }
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+
+    #[test]
+    fn reverse_positive_integer() {
+        assert_eq!(reverse(1234), 4321);
+    }
+
+    #[test]
+    fn reverse_negative_integer() {
+        assert_eq!(reverse(-1234), -4321);
+    }
+
+    #[test]
+    fn reverse_zero() {
+        assert_eq!(reverse(0), 0);
+    }
+
+    #[test]
+    fn reverse_a_number_with_insignificant_zero() {
+        assert_eq!(reverse(0123), 321);
+    }
+
+    #[test]
+    fn reverse_a_out_of_bound_integer() {
+        assert_eq!(reverse(2147483647), 0);
+    }
+}
